@@ -1,12 +1,11 @@
 from flask import Flask
 from .engine import duckgo
-import json
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return {"message": "Search engine API running", "engines online": {"DuckGo": {"endpoint": "/engines/duckgo/"}}, "status code": 200} 200
+    return {"message": "Search engine API running", "engines online": {"DuckGo": {"endpoint": "/engines/duckgo/"}}, "status code": 200}
 
 @app.route('/engines')
 def engines():
