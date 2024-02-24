@@ -42,7 +42,3 @@ def duckgo(query, num):
 
         return {"search engine": "DuckGo", "query": query, "number of results": num, "results": response}
 
-
-resultados = duckgo(query='Jair Messias Bolsonaro', num=3)
-resultados_json = json.dumps(resultados, ensure_ascii=False, indent=4)
-print(resultados_json)
