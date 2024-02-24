@@ -6,11 +6,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return {"message": "Search engine API running", "engines online": {"DuckGo": ["endpoint": "/engines/duckgo/"]}, "status code": 200} 200
+    return {"message": "Search engine API running", "engines online": {"DuckGo": {"endpoint": "/engines/duckgo/"}}, "status code": 200} 200
 
 @app.route('/engines')
 def engines():
-    return {"search engines": {"DuckGo": ["server": "https://duckduckgo.com/", "service status": "online"], "Google": ["server": "https://google.com/", "service status": "offline"]}, "status code": 200}, 200
+    return {"search engines": {"DuckGo": {"server": "https://duckduckgo.com/", "service status": "online"}, "Google": {"server": "https://google.com/", "service status": "offline"}}, "status code": 200}, 200
 
 @app.route('/engines/duckgo')
 def duckgo_info():
