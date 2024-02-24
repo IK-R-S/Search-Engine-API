@@ -3,7 +3,6 @@ from .engine import duckgo
 
 app = Flask(__name__)
 
-print(resultados_json)
 @app.route('/')
 def home():
     return {"message": "Search engine API running", "engines online": {"name": "DuckGo", "endpoint": "/engines/duckgo/"}}
