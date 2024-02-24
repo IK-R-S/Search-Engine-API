@@ -1,5 +1,6 @@
 from flask import Flask
 from .engine import duckgo
+import json
 
 app = Flask(__name__)
 
