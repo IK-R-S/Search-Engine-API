@@ -5,7 +5,7 @@ import requests
 import json
 
 
-def duckgo(query, num):
+def duckgo(query):
 
     url = f'https://html.duckduckgo.com/html/?q={query}'
 
@@ -36,9 +36,9 @@ def duckgo(query, num):
 
     response = {}
     if len(response_titles) == len(response_urls):
-        results_num = num  # OR len(response_urls) to all
+        results_num = len(response_urls)
         for i in range(0, results_num):
             response.update({response_titles[i]: response_urls[i]})
 
-        return {"search engine": "DuckGo", "query": query, "number of results": num, "results": response}
+        return {"message": "search request sucessfuly", "search engine": "DuckGo", "query": query, "number of results": results_num, "results": response, "status": 200}, 200
 
