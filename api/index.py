@@ -6,9 +6,25 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return {"message": "Search engine API running", "engines online": {"name": "DuckGo", "endpoint": "/engines/duckgo/"}}
+    return {"message": "Search engine API running", "engines online": {"DuckGo": ["endpoint": "/engines/duckgo/"]}, "status code": 200} 200
 
+@app.route('/engines')
+def engines(q):
+    return {"search engines": {"DuckGo": ["server": "https://duckduckgo.com/", "service status": "online"], "Google": ["server": "https://google.com/", "service status": "offline"]}, "status code": 200}, 200
+
+@app.route('/engines/duckgo')
+def duckgo_info(q):
+    return {"search engine": "DuckGo", "server": "https://duckduckgo.com/", "service status": "online", "status code": 200}, 200
+    
 @app.route('/engines/duckgo/<q>')
-def duckduckgo(q):
+def duckgo_engine(q):
     results, status_code = duckgo(query=q)
     return results, status_code
+    
+@app.route('/engines/google')
+def google_info(q):
+    return {"search engine": "Google", "server": "https://google.com/", "service status": "offline", "status code": 503}, 503
+
+@app.route('/engines/google/<q>')
+def google_engine(q):
+    return {"message": "engine unavailable", "service status": "offline", "status code": 503}, 503
