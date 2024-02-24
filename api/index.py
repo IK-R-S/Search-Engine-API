@@ -9,6 +9,6 @@ def home():
     return {"message": "Search engine API running", "engines online": {"name": "DuckGo", "endpoint": "/engines/duckgo/"}}
 
 @app.route('/engines/duckgo/<q>')
-def duckgo(q):
+def duckduckgo(q):
     results, status_code = duckgo(query=q)
     return results, status_code
